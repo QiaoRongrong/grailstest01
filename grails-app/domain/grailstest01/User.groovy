@@ -28,7 +28,7 @@ class User {
 
     static constraints = {
         userDetail(unique: true)  //one-to-one
-        cellPhoneNo nullable: false, unique: true
+        cellPhoneNo nullable: false, unique: true, matches: /\d+/
         password nullable: false, unique: false
         email nullable: true
 
