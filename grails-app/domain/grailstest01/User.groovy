@@ -11,9 +11,12 @@ class User {
     String password
     String email
     String cellPhoneNo
-    Integer role
+    UserType userType
 
-    UserDetail userDetail
+   // UserDetail userDetail
+
+    //Defines a bidirectional one-to-one association between two classes where the foreign key is in the child.
+    static hasOne = [userDetail : UserDetail]
 
     static mapping = {
         table 'users_base'
@@ -27,11 +30,11 @@ class User {
     }
 
     static constraints = {
-        userDetail(unique: true)  //one-to-one
+        //userDetail(unique: true)  //one-to-one
         cellPhoneNo nullable: false, unique: true, matches: /\d+/
         password nullable: false, unique: false
         email nullable: true
-
+        userDetail nullable: true
 
     }
 
